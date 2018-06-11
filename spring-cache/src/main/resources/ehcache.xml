@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+	<cache-template name="heap-cache">
+		<resources>
+			<!-- 在堆中申请2000个entries -->
+			<heap unit="entries">2000</heap>
+			<!-- 最大非堆内存 -->
+			<offheap unit="MB">100</offheap>
+		</resources>
+	</cache-template>
+
+	<cache alias="user" uses-template="heap-cache">
+		<expiry>
+			<ttl unit="seconds">10</ttl>
+		</expiry>
+	</cache>
+	<!-- diskStore ：指定数据存储位置，当EhCache把数据写到硬盘上时，可指定磁盘中的文件夹位置 -->
+	<!-- <diskStore path="java.io.tmpdir" /> -->
+
+	<!-- defaultCache： 默认的管理策略， 设定缓存的默认数据过期策略 -->
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		overflowToDisk="false" timeToIdleSeconds="10" timeToLiveSeconds="20"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120" />
+
+	<!-- name： Cache的名称，必须是唯一的(ehcache会把这个cache放到HashMap里)。 -->
+	<!-- maxElementsInMemory： 在内存中缓存的element的最大数目。 -->
+	<!-- maxElementsOnDisk：在磁盘上缓存的element的最大数目，默认值为0，表示不限制。 -->
+	<!-- eternal：设定缓存的elements是否永远不过期。默认为false。 如果为true，表示对象永不过期，此时会忽略timeToIdleSeconds和timeToLiveSeconds属性， 
+		如果为false那么还要根据timeToIdleSeconds，timeToLiveSeconds判断。 -->
+	<!-- overflowToDisk：当为true表示当内存缓存的对象数目达到了 maxElementsInMemory界限后，会把溢出的对象写到硬盘缓存中。 
+		注意：如果缓存的对象要写入到硬盘中的话，则该对象必须实现了Serializable接口才行。 -->
+	<!-- 以下属性是可选的： -->
+	<!-- diskSpoolBufferSizeMB： DiskStore使用的磁盘大小，默认值30MB。每个cache使用各自的DiskStore。 -->
+	<!-- diskPersistent：是否在磁盘上持久化。指重启jvm后，数据是否有效。默认为false。 当这个属性的值为true时, 系统在初始化时会在磁盘中查找文件名 
+		为cache名称,后缀名为index的文件，这个文件中存放了已经持久化在磁盘中的cache的index, 找到后会把cache加载到内存，要想把 
+		cache真正持久化到磁盘,写程序时注意执行net.sf.ehcache.Cache.put(Element element) 后要调用flush()方法。 -->
+	<!-- diskExpiryThreadIntervalSeconds： 对象检测线程运行时间间隔。标识对象状态的线程多长时间运行一次。 磁盘失效线程运行时间间隔，默认为120秒 -->
+
+	<!-- timeToIdleSeconds： 对象空闲时间，指对象在多长时间没有被访问就会失效。只对eternal为false的有效。默认值0，表示一直可以访问。 
+		以秒为单位。当对象自从最近一次被访问后，如果处于空闲状态的时间超过了timeToIdleSeconds属性值，这个对象就会过期， EHCache将把它从缓存中清空。 -->
+	<!-- timeToLiveSeconds： 对象存活时间，指对象从创建到失效所需要的时间。只对eternal为false的有效。默认值0，表示一直可以访问。 
+		以秒为单位。当对象自从被存放到缓存中后，如果处于缓存中的时间超过了 timeToLiveSeconds属性值，这个对象就会过期，EHCache将把它从缓存中清除。 -->
+	<!-- memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时， Ehcache将会根据指定的策略去清理内存。可选策略有： 
+		LRU（最近最少使用，默认策略）、FIFO（先进先出）、LFU（最少访问次数）。 -->
+	<cache name="cacheTest" maxElementsInMemory="1000" eternal="false"
+		overflowToDisk="false" timeToIdleSeconds="3" timeToLiveSeconds="6">
+	</cache>
+	<!-- 缓存的3 种清空策略 ： -->
+	<!-- FIFO ，first in first out (先进先出). -->
+	<!-- LFU ， Less Frequently Used (最少使用).意思是一直以来最少被使用的。缓存的元素有一个hit 属性，hit 
+		值最小的将会被清出缓存。 -->
+	<!-- LRU ，Least Recently Used(最近最少使用). (ehcache 默认值).缓存的元素有一个时间戳，当缓存容量满了， 
+		而又需要腾出地方来缓存新的元素的时候，那么现有缓存元素中时间戳离当前时间最远的元素将被清出缓存。 -->
+	-->
+</ehcache>
