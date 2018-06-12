@@ -1,0 +1,7 @@
+server:
+  port: 8081
+spring:
+  cache:
+    cache-names: user
+    caffeine:
+      spec: initialCapacity=50,maximumSize=500,expireAfterWrite=10s,refreshAfterWrite=5s
