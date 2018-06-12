@@ -13,6 +13,7 @@
 		<module>spring-org-cache</module>
 		<module>spring-ehcache</module>
 		<module>spring-caffeine</module>
+		<module>spring-redis</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

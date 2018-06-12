@@ -10,7 +10,6 @@ public class CacheLoaderSelf {
 	/**
 	 * 必须要指定这个Bean，refreshAfterWrite=5s这个配置属性才生效
 	 *
-	 * @return
 	 */
 	@Bean
 	public CacheLoader<Object, Object> cacheLoader() {
