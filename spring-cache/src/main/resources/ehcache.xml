@@ -44,7 +44,7 @@
 	<!-- memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时， Ehcache将会根据指定的策略去清理内存。可选策略有： 
 		LRU（最近最少使用，默认策略）、FIFO（先进先出）、LFU（最少访问次数）。 -->
 	<cache name="cacheTest" maxElementsInMemory="1000" eternal="false"
-		overflowToDisk="false" timeToIdleSeconds="3" timeToLiveSeconds="6">
+		overflowToDisk="false" timeToIdleSeconds="1" timeToLiveSeconds="2">
 	</cache>
 	<!-- 缓存的3 种清空策略 ： -->
 	<!-- FIFO ，first in first out (先进先出). -->
