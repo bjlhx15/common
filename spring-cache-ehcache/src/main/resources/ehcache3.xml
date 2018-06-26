@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns='http://www.ehcache.org/v3'
+	xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xs">
+	<!-- http://www.ehcache.org/documentation/3.0/xml.html -->
+	<!--5、<cache-template>可以让你创建一个抽象的<cache>配置文件，该配置文件可以进一步的被扩展。 -->
+	<cache-template name="heap-cache">
+		<resources>
+			<!-- 在堆中申请2000个entries -->
+			<heap unit="entries">2000</heap>
+			<!-- 最大非堆内存 -->
+			<offheap unit="MB">100</offheap>
+		</resources>
+	</cache-template>
+
+	<cache alias="user" uses-template="heap-cache">
+		<expiry>
+			<!--tti： time to idle, 最大空闲时间 -->
+			<!-- <ttl>, time to live; 最大存活时间 -->
+			<!-- <class>, 自定义的Expiry实现 -->
+			<!-- <none>, 不过期 -->
+			<!-- minutes、seconds -->
+			<ttl unit="seconds">10</ttl>
+		</expiry>
+		<!-- <ehcache:key-type>java.lang.Long</ehcache:key-type> -->
+		<!-- <ehcache:value-type>com.pany.domain.Customer</ehcache:value-type> -->
+		<!-- <ehcache:heap unit="entries">200</ehcache:heap> -->
+	</cache>
+
+</config>
