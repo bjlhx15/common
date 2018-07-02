@@ -10,11 +10,8 @@
 	<modules>
 		<module>common-help</module>
 		<module>spring-framework-core</module>
-		<module>spring-cache-org</module>
-		<module>spring-cache-ehcache</module>
-		<module>spring-cache-caffeine</module>
-		<module>spring-cache-redis</module>
-		<module>spring-mybatis-pagehelper</module>
+		<module>spring-cache</module>
+        <module>spring-mybatis</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
