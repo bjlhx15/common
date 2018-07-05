@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhx.spring.mapper.UserMapperExt">
+  <resultMap id="BaseResultMap" type="com.lhx.spring.entiry.auto.User">
+  </resultMap>
+  <select id="queryList"  resultMap="BaseResultMap">
+    select 
+    <include refid="com.lhx.spring.mapper.auto.UserMapper.Base_Column_List" />
+    from users
+  </select>
+</mapper>

@@ -12,6 +12,8 @@
 		<module>spring-framework-core</module>
 		<module>spring-cache</module>
         <module>spring-mybatis</module>
+        <module>spring-datasource</module>
+		<module>example-base</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

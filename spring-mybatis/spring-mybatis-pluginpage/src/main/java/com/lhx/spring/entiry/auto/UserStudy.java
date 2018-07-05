@@ -2,14 +2,14 @@ package com.lhx.spring.entiry.auto;
 
 /**
  * user_study
- * @author Administrator 2018-07-03 22:13:48
+ * @author Administrator 2018-07-02 23:54:56
  */
 public class UserStudy {
     /**
      * 主键
      * This field corresponds to the database column user_study.s_id
      *
-     * @mbg.generated 2018-07-03 22:13:48
+     * @mbg.generated 2018-07-02 23:54:56
      */
     private Integer sId;
 
@@ -17,7 +17,7 @@ public class UserStudy {
      * 姓名
      * This field corresponds to the database column user_study.user_name
      *
-     * @mbg.generated 2018-07-03 22:13:48
+     * @mbg.generated 2018-07-02 23:54:56
      */
     private String userName;
 
@@ -25,7 +25,7 @@ public class UserStudy {
      * 性别
      * This field corresponds to the database column user_study.s_age
      *
-     * @mbg.generated 2018-07-03 22:13:48
+     * @mbg.generated 2018-07-02 23:54:56
      */
     private String sAge;
 
@@ -79,7 +79,7 @@ public class UserStudy {
 
     /**
      *
-     * @mbg.generated 2018-07-03 22:13:48
+     * @mbg.generated 2018-07-02 23:54:56
      */
     @Override
     public boolean equals(Object that) {
@@ -100,7 +100,7 @@ public class UserStudy {
 
     /**
      *
-     * @mbg.generated 2018-07-03 22:13:48
+     * @mbg.generated 2018-07-02 23:54:56
      */
     @Override
     public int hashCode() {

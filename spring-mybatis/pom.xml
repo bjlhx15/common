@@ -21,6 +21,7 @@
         <module>spring-mybatis-base</module>
         <module>spring-mybatis-pagehelper</module>
         <module>mybatis-plugin-ext</module>
+        <module>spring-mybatis-pluginpage</module>
 	</modules>
     <dependencies>
         <dependency>

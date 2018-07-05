@@ -16,7 +16,7 @@
         <property name="javaFileEncoding" value="UTF-8"/>
         <!--插件-->
         <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
-        <!--<plugin type="com.lhx.common.mybatis.plugin.MutiDatasourcePaginationPlugin"></plugin>-->
+        <plugin type="com.lhx.common.mybatis.plugin.MutiDatasourcePaginationPlugin"></plugin>
         <!-- 这里的type里写的是你的实现类的类全路径 -->
         <commentGenerator type="com.lhx.common.mybatis.plugin.DBCommentGenerator">
             <property name="suppressDate" value="false"/> <!-- 是否去除注释时间戳 false时打开时间标志，true时关闭-->
@@ -62,8 +62,7 @@
         <!--<table tableName="users" domainObjectName="User" enableUpdateByExample="false"-->
         <!--enableSelectByExample="false" enableDeleteByExample="false"-->
         <!--enableCountByExample="false" />-->
-        <table tableName="users" domainObjectName="User" enableUpdateByExample="false" enableSelectByExample="false" enableDeleteByExample="false"
-               enableCountByExample="false"/>
+        <table tableName="users" domainObjectName="User"/>
         <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample
             是否生成 example类   -->
 
