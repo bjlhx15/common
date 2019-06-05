@@ -3,18 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.lhx.common</groupId>
+	<groupId>com.github.bjlhx15</groupId>
 	<artifactId>common</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<modules>
 		<module>common-help</module>
 		<module>spring-framework-core</module>
-		<module>spring-cache-org</module>
-		<module>spring-cache-ehcache</module>
-		<module>spring-cache-caffeine</module>
-		<module>spring-cache-redis</module>
-		<module>spring-mybatis-pagehelper</module>
+		<module>spring-cache</module>
+        <module>spring-mybatis</module>
+        <module>spring-datasource</module>
+		<module>example-base</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
