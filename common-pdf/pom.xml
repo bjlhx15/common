@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>com.github.bjlhx15</groupId>
-    <version>0.0.1-SNAPSHOTS</version>
+    <version>0.0.2</version>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 
@@ -92,6 +92,17 @@
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
+
+            <!-- maven 编译-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -99,7 +110,7 @@
     <!--上传jar配置-->
     <!-- 基础信息-->
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>mybatis plugins</description>
+    <description>pdf 生成</description>
     <url>https://github.com/bjlhx15/common/</url>
     <!--开源授权信息-->
     <licenses>
