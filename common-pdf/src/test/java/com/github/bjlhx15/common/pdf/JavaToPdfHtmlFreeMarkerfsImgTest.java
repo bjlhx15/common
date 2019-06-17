@@ -21,7 +21,7 @@ public class JavaToPdfHtmlFreeMarkerfsImgTest {
         System.out.println(JavaToPdfHtmlFreeMarkerfsImg.class.getClass().getResource("/"));
         Map<String,Object> data = new HashMap();
         data.put("name","李宏旭");
-        JavaToPdfHtmlFreeMarkerfsImg.createPdfFile(data,"template_freemarker_fs.html",null,
+        JavaToPdfHtmlFreeMarkerfsImg.createPdfFile(data,"template_freemarker_fs.html","",
                 "/Users/lihongxu6/IdeaProjects/common/common-pdf/target/HelloWorld_CN_HTML_freemarker_fs_pdf.pdf");
     }
 

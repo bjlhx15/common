@@ -4,7 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>com.github.bjlhx15</groupId>
-    <version>0.0.2</version>
+<!--    <version>0.0.3-SNAPSHOT</version>-->
+    <version>0.0.3</version>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
 

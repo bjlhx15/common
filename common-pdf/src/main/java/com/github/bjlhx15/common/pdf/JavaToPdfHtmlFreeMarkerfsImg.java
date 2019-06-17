@@ -22,7 +22,7 @@ import java.util.Map;
 public class JavaToPdfHtmlFreeMarkerfsImg {
     //    private static final String DEST = "/Users/lihongxu6/IdeaProjects/common/common-pdf/target/HelloWorld_CN_HTML_freemarker_fs_img.png";
     private static final String HTML = "template_freemarker_fs.html";
-    private static final String FONT = "simhei.ttf";
+    private static final String FONT = "simsun.ttf";
     //    private static final String LOGO_PATH = "file:/Users/lihongxu6/IdeaProjects/common/common-pdf/target/classes/";
 //    private static final String IMG_EXT = "png";
 
@@ -74,7 +74,7 @@ public class JavaToPdfHtmlFreeMarkerfsImg {
      *
      * @param data    数据
      * @param htmlTmp 模板路径classpath 后路径
-     * @param font    默认字体simhei null既是默认
+     * @param font    默认字体 simsun null既是默认
      * @param dest    目标路径
      * @throws Exception
      */
@@ -92,8 +92,10 @@ public class JavaToPdfHtmlFreeMarkerfsImg {
         render.setDocumentFromString(content);
         //解决图片相对路径的问题
         // 解决图片的相对路径问题
-        String img_classpath = JavaToPdfHtmlFreeMarkerfsImg.class.getClass().getResource("/").getPath();
-        render.getSharedContext().setBaseURL("file:" + img_classpath);
+        String classpath = Thread.currentThread().getContextClassLoader().getResource("/") != null
+                ? Thread.currentThread().getContextClassLoader().getResource("/").getPath()
+                : JavaToPdfHtmlFreeMarkerfsImg.class.getClass().getResource("/").getPath();
+        render.getSharedContext().setBaseURL("file:" + classpath);
         render.layout();
         render.createPDF(new FileOutputStream(dest));
     }
