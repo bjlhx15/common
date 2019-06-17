@@ -1,6 +1,6 @@
 package com.lhx.spring.entiry.auto;
 
-import com.lhx.common.mybatis.vo.pagination.Page;
+//import com.lhx.common.mybatis.vo.pagination.Page;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class UserExample {
     /**
      * users
      */
-    protected Page page;
+//    protected Page page;
 
     /**
      *
@@ -126,17 +126,17 @@ public class UserExample {
      *
      * @mbg.generated 2018-07-02 23:54:56
      */
-    public void setPage(Page page) {
-        this.page=page;
-    }
-
-    /**
-     *
-     * @mbg.generated 2018-07-02 23:54:56
-     */
-    public Page getPage() {
-        return page;
-    }
+//    public void setPage(Page page) {
+//        this.page=page;
+//    }
+//
+//    /**
+//     *
+//     * @mbg.generated 2018-07-02 23:54:56
+//     */
+//    public Page getPage() {
+//        return page;
+//    }
 
     /**
      * users
