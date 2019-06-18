@@ -17,6 +17,7 @@
 		<module>common-bigfileupload</module>
 		<module>common-bigfileupload-spring</module>
 		<module>common-pdf</module>
+		<module>common-iostream</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
