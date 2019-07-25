@@ -133,7 +133,9 @@ public class BaseUtil {
 //            List<Map.Entry<String, String>> firstLineHeaderToFiled = sheetEntryEntry.getValue().getValue(); //第一行 头字段与类对应关系
             Map<String, Map.Entry<String, ImportRuleValidDecorator>> firstLineHeaderToFiled = sheetEntryEntry.getValue().getValue();//第一行 头字段与类对应关系
             Sheet sheet = workbook.getSheetAt(i);//获取sheet页
-            Field[] fields = clazz.getDeclaredFields();
+//            Field[] fields = clazz.getDeclaredFields();
+
+            List<Field> fields = BaseUtil.getFieldAll(clazz.getClass());
             List<Object> list = new ArrayList<>();
             result.add(list);
 
@@ -152,8 +154,8 @@ public class BaseUtil {
                         Cell cell = rowHeader.getCell(k);//获取一个单元格
 //                        Object value = getValue(cell);
                         if (entry.getKey().equals(getValue(cell))) {
-                            for (int l = 0; l < fields.length; l++) {//遍历字段
-                                Field field = fields[l];
+                            for (int l = 0; l < fields.size(); l++) {//遍历字段
+                                Field field = fields.get(l);
                                 if (field.getName().equals(entry.getValue().getKey())) {
                                     mapField.put(k, new AbstractMap.SimpleEntry<>(entry.getValue().getValue(), field));
 
@@ -223,8 +225,8 @@ public class BaseUtil {
                     Row row = sheet.getRow(rowIndex);//获取一行
 
                     //遍历类 字段
-                    for (int l = 0; l < fields.length; l++) {//遍历字段
-                        Field field = fields[l];//类字段
+                    for (int l = 0; l < fields.size(); l++) {//遍历字段
+                        Field field = fields.get(l);//类字段
                         Cell cell = row.getCell(l);//获取一个单元格
                         Object value = getValue(cell);
                         BaseUtil.setValue(o, field, value);
@@ -234,10 +236,9 @@ public class BaseUtil {
         }
 
 //        inputStream.close();
-        if(outputStream==null){
-            outputStream =new ByteArrayOutputStream();
+        if(outputStream!=null){
+            workbook.write(outputStream);
         }
-        workbook.write(outputStream);
         return new AbstractMap.SimpleEntry<>(successFlag,result);
     }
 
@@ -287,6 +288,15 @@ public class BaseUtil {
         cellStyle2.setFont(font2);
         cell.setCellStyle(cellStyle2);
         cell.setCellValue("单元格["+(columnNum+1)+"]异常："+value);
+    }
 
+    public static List<Field>  getFieldAll(Class clazz){
+        List<Field> list =new ArrayList<>();
+        Field[] declaredFields = clazz.getDeclaredFields();
+        list.addAll(Arrays.asList(declaredFields));
+        if(clazz.getSuperclass()!=null){
+            list.addAll(getFieldAll(clazz.getSuperclass()));
+        }
+        return list;
     }
 }

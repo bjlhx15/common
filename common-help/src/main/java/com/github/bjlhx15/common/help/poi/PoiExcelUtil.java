@@ -13,10 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PoiExcelUtil {
     /**
@@ -93,9 +90,8 @@ public class PoiExcelUtil {
             for (int i = 0; i < datas.size(); i++) {
                 //列
                 T data = datas.get(i);
-//                Field[] fields = data.getClass().getFields(); // 返回属性为public的字段
-                Field[] fields = data.getClass().getDeclaredFields(); // 返回所有的属性
 
+                List<Field> fieldList = BaseUtil.getFieldAll(data.getClass());
 
                 // 列头匹配
                 if (flagHeaderCreate) {
@@ -108,8 +104,8 @@ public class PoiExcelUtil {
 //                            Map.Entry<String, String> entry = headerMapping.get(j);
                             Map.Entry<String, Map.Entry<String, StrategyContext>> entry = headerMapping.get(j);
 
-                            for (int k = 0; k < fields.length; k++) {//遍历类字段
-                                Field field = fields[k];
+                            for (int k = 0; k < fieldList.size(); k++) {//遍历类字段
+                                Field field = fieldList.get(k);
                                 if (entry.getKey().equalsIgnoreCase(field.getName())) {
                                     listField.add(field);
 //                                    listField.add(new AbstractMap.SimpleEntry<>(field, entry.getValue().getValue()));
@@ -119,8 +115,8 @@ public class PoiExcelUtil {
                         }
                     } else {
                         // headerMapping  不存在 按照类属性导出
-                        for (int j = 0; j < fields.length; j++) {
-                            Field field = fields[j];
+                        for (int j = 0; j < fieldList.size(); j++) {
+                            Field field = fieldList.get(j);
                             listField.add(field);
 //                            listField.add(new AbstractMap.SimpleEntry<>(field, CellDataType._NONE));
                             Cell cell = rowHeader.createCell(j);
@@ -159,38 +155,41 @@ public class PoiExcelUtil {
 
     //############################## 导入 ##############################
     //指定sheet
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>> toClass) throws Exception {
+    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet,
+                                                                    Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>> toClass,
+                                                                    OutputStream outputStream) throws Exception {
         List<Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass = new ArrayList<>();
         for (int i = 0; i < sheet; i++) {
             sheetToClass.add(null);
         }
         sheetToClass.add(toClass);
-        return importExcel(inputStream, sheetToClass);
+        return importExcel(inputStream, sheetToClass,outputStream);
     }
 
     //指定sheet class
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader) throws Exception {
+    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz,
+                                                                    Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader,
+                                                                    OutputStream outputStream) throws Exception {
         Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>> toClass = new AbstractMap.SimpleEntry<>(clazz, toHeader);
-        return importExcel(inputStream, sheet, toClass);
+        return importExcel(inputStream, sheet, toClass,outputStream);
     }
 
     //指定sheet class header headerField
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz, Boolean header, Map<String,Map.Entry<String, ImportRuleValidDecorator>> toHeaderField) throws Exception {
+    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz,
+                                                                    Boolean header, Map<String,Map.Entry<String, ImportRuleValidDecorator>> toHeaderField,
+                                                                    OutputStream outputStream) throws Exception {
         Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader = new AbstractMap.SimpleEntry<>(header, toHeaderField);
-        return importExcel(inputStream, sheet, clazz, toHeader);
+        return importExcel(inputStream, sheet, clazz, toHeader,outputStream);
     }
 
     //第 0个 sheet class header headerField
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, Class clazz, Boolean header, Map<String,Map.Entry<String, ImportRuleValidDecorator>> toHeaderField) throws Exception {
+    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, Class clazz, Boolean header,
+                                                                    Map<String,Map.Entry<String, ImportRuleValidDecorator>> toHeaderField,
+                                                                    OutputStream outputStream) throws Exception {
         Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader = new AbstractMap.SimpleEntry<>(header, toHeaderField);
-        return importExcel(inputStream, 0, clazz, toHeader);
+        return importExcel(inputStream, 0, clazz, toHeader,outputStream);
     }
 
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream,
-                                                                    List<Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass
-    ) throws Exception {
-        return importExcel(inputStream, sheetToClass,null);
-    }
     /**
      * @param inputStream
      * @param sheetToClass 每个 sheet Class fistHeader firstLineHeaderToFiled<年龄,age>

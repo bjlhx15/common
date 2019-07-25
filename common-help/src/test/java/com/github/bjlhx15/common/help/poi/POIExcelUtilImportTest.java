@@ -53,7 +53,7 @@ public class POIExcelUtilImportTest {
         Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> header = new AbstractMap.SimpleEntry<>(true, null);
         Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>> clazz = new AbstractMap.SimpleEntry<>(Person.class, header);
         sheetToClass.add(clazz);
-        Map.Entry<Boolean, List<List<Object>>> lists = PoiExcelUtil.importExcel(inputStream, sheetToClass);
+        Map.Entry<Boolean, List<List<Object>>> lists = PoiExcelUtil.importExcel(inputStream, sheetToClass,null);
         for (List<Object> list : lists.getValue()) {
             for (Object o : list) {
                 Person p = (Person) o;
@@ -73,7 +73,7 @@ public class POIExcelUtilImportTest {
         toHeaderField.put("年龄",new AbstractMap.SimpleEntry<>("age", decorator));
         toHeaderField.put("性别",new AbstractMap.SimpleEntry<>("gender", decorator));
 
-        Map.Entry<Boolean, List<List<Object>>> lists = PoiExcelUtil.importExcel(inputStream, Person.class, true, toHeaderField);
+        Map.Entry<Boolean, List<List<Object>>> lists = PoiExcelUtil.importExcel(inputStream, Person.class, true, toHeaderField,null);
         for (List<Object> list : lists.getValue()) {
             for (Object o : list) {
                 Person p = (Person) o;
