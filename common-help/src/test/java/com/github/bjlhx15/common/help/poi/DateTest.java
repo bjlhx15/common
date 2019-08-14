@@ -13,9 +13,9 @@ public class DateTest {
 
     @Test
     public void testDate() throws Exception {
-        Date date=new Date();
+        Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateStr="2019-07-23 08:17:01";
+        String dateStr = "2019-07-23 08:17:01";
         //Date→ String
         String format = sdf.format(date);
         System.out.println(format);
@@ -57,12 +57,11 @@ public class DateTest {
     }
 
 
-
     @Test
     public void testDateAnquan() throws Exception {
-        Date date=new Date();
+        Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateStr="2019-07-23 08:17:01";
+        String dateStr = "2019-07-23 08:17:01";
         //Date→ String
         String format = sdf.format(date);
         System.out.println(format);
@@ -72,10 +71,11 @@ public class DateTest {
 //        2019-07-23 08:25:03
 //        Tue Jul 23 08:17:01 CST 2019
     }
+
     @Test
     public void testDateThread() throws Exception {
-        Date date=new Date();
-        String dateStr="2019-07-23 08:17:01";
+        Date date = new Date();
+        String dateStr = "2019-07-23 08:17:01";
         //String →  Date
         long start = System.currentTimeMillis();
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(50);
@@ -103,6 +103,17 @@ public class DateTest {
 
     }
 
+    @Test
+    public void data() {
+        Date detecttime = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(detecttime);
 
+        Date start = new Date(detecttime.getYear(), detecttime.getMonth(), detecttime.getDay());
+        Date end = new Date(detecttime.getYear(), detecttime.getMonth(), detecttime.getDay() + 1);
+
+        System.out.println(start);
+        System.out.println(end);
+    }
 
 }

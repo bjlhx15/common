@@ -82,4 +82,30 @@ public class POIExcelUtilImportTest {
         }
     }
 
+
+
+    @Test
+    public void importExcelDataNoHeaderMap() throws Exception {
+        InputStream inputStream = new FileInputStream("/Users/lihongxu6/IdeaProjects/common/common-help/exportExcelBase.xlsx");//创建一个输入流读取单元格
+        List<Map.Entry<Class, Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass = new ArrayList<>();
+
+
+        ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+
+        Map.Entry<Boolean, List<List<Object>>> lists = PoiExcelUtil.importExcel(inputStream,Map.class,true,null,outputStream);
+
+        if (lists.getKey()) {
+            for (List<Object> list : lists.getValue()) {
+                for (Object o : list) {
+                    Person p = (Person) o;
+                    System.out.println(p.toString());
+                }
+            }
+        } else {
+            System.out.println("--------导入失败");
+            OutputStream out = new FileOutputStream("exportExcelBaseError.xlsx");
+            outputStream.writeTo(out);
+        }
+    }
+
 }

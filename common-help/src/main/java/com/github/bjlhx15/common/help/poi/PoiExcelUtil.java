@@ -7,6 +7,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -63,13 +64,15 @@ public class PoiExcelUtil {
         boolean flagHeaderCreate = true;
         int rowIndex = 0;
         List<Field> listField = new ArrayList<>();//字段类型
+//        List<Map.Entry<String, Integer>> listMapHeader = new ArrayList<>();//字段类型
+        Map<String, Integer> listMapHeader = new LinkedHashMap<>();//字段类型
 //        List<Map.Entry<Field, CellDataType>> listField = new ArrayList<>();//字段类型
 
         //列头mapping
         //headerMapping 有值 使用 headerMapping 列头
         Row rowHeader = sheet.createRow(rowIndex);
-        rowIndex++;
         if (headerMapping != null && headerMapping.size() > 0) {
+            rowIndex = 1;
             // headerMapping 存在 按照映射导出
             for (int j = 0; j < headerMapping.size(); j++) {//遍历头
                 Cell cell = rowHeader.createCell(j);
@@ -115,32 +118,59 @@ public class PoiExcelUtil {
                         }
                     } else {
                         // headerMapping  不存在 按照类属性导出
-                        for (int j = 0; j < fieldList.size(); j++) {
-                            Field field = fieldList.get(j);
-                            listField.add(field);
+                        rowIndex = 1;
+                        if (data.getClass().getTypeName().equals("java.util.Map")) {
+                            Map<String, String> tmp = (Map) data;
+                            int tmpKeyIndex = 0;
+                            for (String s : tmp.keySet()) {
+                                Cell cell = rowHeader.createCell(tmpKeyIndex);
+                                cell.setCellValue(s);
+                                tmpKeyIndex++;
+                                listMapHeader.put(s,tmpKeyIndex);
+                            }
+                        } else {
+                            for (int j = 0; j < fieldList.size(); j++) {
+                                Field field = fieldList.get(j);
+                                listField.add(field);
 //                            listField.add(new AbstractMap.SimpleEntry<>(field, CellDataType._NONE));
-                            Cell cell = rowHeader.createCell(j);
-                            cell.setCellValue(field.getName());
+                                Cell cell = rowHeader.createCell(j);
+                                cell.setCellValue(field.getName());
+                            }
                         }
                     }
                 }
 
                 //行 数据
-                Row row = sheet.createRow(i + 1);
-                // 列值—
-                for (int j = 0; j < listField.size(); j++) {
-                    Field field = listField.get(j);
+                Row row = sheet.createRow(i + rowIndex);
+
+                if (data.getClass().getTypeName().equals("java.util.Map")) {
+                    Map<String, String> tmp = (Map) data;
+                    for (Map.Entry<String, String> entry : tmp.entrySet()) {
+                        for (Map.Entry<String, Integer> integerEntry : listMapHeader.entrySet()) {
+                            if (entry.getKey().equals(integerEntry.getKey())) {
+                                Cell cell = row.createCell(integerEntry.getValue());
+                                cell.setCellValue(entry.getValue());
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    // 列值—
+                    for (int j = 0; j < listField.size(); j++) {
+                        Field field = listField.get(j);
 
 //                    List<Field> typeEntry = listField.get(j);
-                    String fieldName = field.getName();
+                        String fieldName = field.getName();
 //                    Field field = typeEntry.getKey();
 
-                    Method m = (Method) data.getClass().getMethod("get" + BaseUtil.getMethodName(fieldName));
-                    String val = BaseUtil.handleDateField(field, m.invoke(data), datePattern);
-                    String value = BaseUtil.handlerReplaceValue(fieldName, val, fieldReplaceValue);
+                        Method m = (Method) data.getClass().getMethod("get" + BaseUtil.getMethodName(fieldName));
+                        String val = BaseUtil.handleDateField(field, m.invoke(data), datePattern);
+                        String value = BaseUtil.handlerReplaceValue(fieldName, val, fieldReplaceValue);
 
-                    Cell cell = row.createCell(j);
-                    cell.setCellValue(value);
+                        Cell cell = row.createCell(j);
+                        cell.setCellValue(value);
+
+                    }
                 }
             }
         }
@@ -155,39 +185,39 @@ public class PoiExcelUtil {
 
     //############################## 导入 ##############################
     //指定sheet
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet,
-                                                                    Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>> toClass,
-                                                                    OutputStream outputStream) throws Exception {
-        List<Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass = new ArrayList<>();
+    public static Map.Entry<Boolean, List<List<Object>>> importExcel(InputStream inputStream, int sheet,
+                                                                     Map.Entry<Class, Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>>> toClass,
+                                                                     OutputStream outputStream) throws Exception {
+        List<Map.Entry<Class, Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass = new ArrayList<>();
         for (int i = 0; i < sheet; i++) {
             sheetToClass.add(null);
         }
         sheetToClass.add(toClass);
-        return importExcel(inputStream, sheetToClass,outputStream);
+        return importExcel(inputStream, sheetToClass, outputStream);
     }
 
     //指定sheet class
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz,
-                                                                    Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader,
-                                                                    OutputStream outputStream) throws Exception {
-        Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>> toClass = new AbstractMap.SimpleEntry<>(clazz, toHeader);
-        return importExcel(inputStream, sheet, toClass,outputStream);
+    public static Map.Entry<Boolean, List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz,
+                                                                     Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>> toHeader,
+                                                                     OutputStream outputStream) throws Exception {
+        Map.Entry<Class, Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>>> toClass = new AbstractMap.SimpleEntry<>(clazz, toHeader);
+        return importExcel(inputStream, sheet, toClass, outputStream);
     }
 
     //指定sheet class header headerField
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz,
-                                                                    Boolean header, Map<String,Map.Entry<String, ImportRuleValidDecorator>> toHeaderField,
-                                                                    OutputStream outputStream) throws Exception {
-        Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader = new AbstractMap.SimpleEntry<>(header, toHeaderField);
-        return importExcel(inputStream, sheet, clazz, toHeader,outputStream);
+    public static Map.Entry<Boolean, List<List<Object>>> importExcel(InputStream inputStream, int sheet, Class clazz,
+                                                                     Boolean header, Map<String, Map.Entry<String, ImportRuleValidDecorator>> toHeaderField,
+                                                                     OutputStream outputStream) throws Exception {
+        Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>> toHeader = new AbstractMap.SimpleEntry<>(header, toHeaderField);
+        return importExcel(inputStream, sheet, clazz, toHeader, outputStream);
     }
 
     //第 0个 sheet class header headerField
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream, Class clazz, Boolean header,
-                                                                    Map<String,Map.Entry<String, ImportRuleValidDecorator>> toHeaderField,
-                                                                    OutputStream outputStream) throws Exception {
-        Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>> toHeader = new AbstractMap.SimpleEntry<>(header, toHeaderField);
-        return importExcel(inputStream, 0, clazz, toHeader,outputStream);
+    public static Map.Entry<Boolean, List<List<Object>>> importExcel(InputStream inputStream, Class clazz, Boolean header,
+                                                                     Map<String, Map.Entry<String, ImportRuleValidDecorator>> toHeaderField,
+                                                                     OutputStream outputStream) throws Exception {
+        Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>> toHeader = new AbstractMap.SimpleEntry<>(header, toHeaderField);
+        return importExcel(inputStream, 0, clazz, toHeader, outputStream);
     }
 
     /**
@@ -196,9 +226,9 @@ public class PoiExcelUtil {
      * @return
      * @throws Exception
      */
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream,
-                                                                    List<Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass,
-                                                                    OutputStream outputStream) throws Exception {
-        return BaseUtil.importExcel(inputStream, sheetToClass,outputStream);
+    public static Map.Entry<Boolean, List<List<Object>>> importExcel(InputStream inputStream,
+                                                                     List<Map.Entry<Class, Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass,
+                                                                     OutputStream outputStream) throws Exception {
+        return BaseUtil.importExcel(inputStream, sheetToClass, outputStream);
     }
 }

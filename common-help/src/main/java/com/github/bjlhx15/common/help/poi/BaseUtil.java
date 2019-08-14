@@ -109,11 +109,11 @@ public class BaseUtil {
      * @return
      * @throws Exception
      */
-    public static Map.Entry<Boolean,List<List<Object>>> importExcel(InputStream inputStream,
-                                                                    List<Map.Entry<Class, Map.Entry<Boolean, Map<String,Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass,
-                                                                    OutputStream outputStream)
+    public static Map.Entry<Boolean, List<List<Object>>> importExcel(InputStream inputStream,
+                                                                     List<Map.Entry<Class, Map.Entry<Boolean, Map<String, Map.Entry<String, ImportRuleValidDecorator>>>>> sheetToClass,
+                                                                     OutputStream outputStream)
             throws Exception {
-        Boolean successFlag=true;
+        Boolean successFlag = true;
         if (sheetToClass == null || sheetToClass.size() == 0) {
             return null;
         }
@@ -135,7 +135,7 @@ public class BaseUtil {
             Sheet sheet = workbook.getSheetAt(i);//获取sheet页
 //            Field[] fields = clazz.getDeclaredFields();
 
-            List<Field> fields = BaseUtil.getFieldAll(clazz.getClass());
+            List<Field> fields = BaseUtil.getFieldAll(clazz);
             List<Object> list = new ArrayList<>();
             result.add(list);
 
@@ -165,22 +165,6 @@ public class BaseUtil {
                         }
                     }
                 }
-//                for (Map.Entry<String, String> entry : firstLineHeaderToFiled) {
-//                    for (int k = 0; k < cellNumHeader; k++) { //遍历列
-//                        Cell cell = rowHeader.getCell(k);//获取一个单元格
-////                        Object value = getValue(cell);
-//                        if (entry.getKey().equals(getValue(cell))) {
-//                            for (int l = 0; l < fields.length; l++) {//遍历字段
-//                                Field field = fields[l];
-//                                if (field.getName().equals(entry.getValue())) {
-//                                    mapField.put(k, new AbstractMap.SimpleEntry<>(entry.getValue(), field));
-//
-//                                    break;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
                 //后续数据
                 int rowNum = sheet.getLastRowNum() + 1;//行数 获取的是最后一行的编号（编号从0开始）。
                 for (int j = 1; j < rowNum; j++) {//遍历行
@@ -193,12 +177,15 @@ public class BaseUtil {
                         Object value = getValue(cell);
                         //校验
                         ImportRuleValidDecorator validateDecorator = entry.getValue().getKey();
-                        Map.Entry<Boolean, String> handlerValid = validateDecorator.handlerValid(value);
-                        if(!handlerValid.getKey()){
-                            successFlag=false;
+                        Map.Entry<Boolean, String> handlerValid =null;
+                        if(validateDecorator!=null){
+                            handlerValid = validateDecorator.handlerValid(value);
+                        }
+                        if (null != handlerValid && !handlerValid.getKey()) {
+                            successFlag = false;
                             short lastCellNum = row.getLastCellNum();
-                            setCellValue(workbook,sheet,j,k,lastCellNum,handlerValid.getValue());
-                        }else {
+                            setCellValue(workbook, sheet, j, k, lastCellNum, handlerValid.getValue());
+                        } else {
                             //反射读取值
                             BaseUtil.setValue(o, entry.getValue().getValue(), value);
                         }
@@ -219,27 +206,40 @@ public class BaseUtil {
                     rowIndex = 1;
                 }
                 int rowNum = sheet.getLastRowNum() + 1;//行数 获取的是最后一行的编号（编号从0开始）。
+                Row firstRow = sheet.getRow(0);//获取第一行
                 for (rowIndex = rowIndex; rowIndex < rowNum; rowIndex++) {//遍历行
-                    Object o = clazz.newInstance();
-                    list.add(o);
-                    Row row = sheet.getRow(rowIndex);//获取一行
 
-                    //遍历类 字段
-                    for (int l = 0; l < fields.size(); l++) {//遍历字段
-                        Field field = fields.get(l);//类字段
-                        Cell cell = row.getCell(l);//获取一个单元格
-                        Object value = getValue(cell);
-                        BaseUtil.setValue(o, field, value);
+                    Row currentRow = sheet.getRow(rowIndex);//获取当前行
+
+                    if (clazz.getTypeName().equals("java.util.Map")) {
+                        Map<String, String> map = new HashMap<>();
+                        list.add(map);
+                        for (int j = 0; j < firstRow.getLastCellNum(); j++) {
+                            Cell cell = currentRow.getCell(j);//获取一个单元格
+                            map.put(firstRow.getCell(j).getStringCellValue(), BaseUtil.getValue(cell).toString());
+                        }
+
+                    } else {
+                        Object o = clazz.newInstance();
+                        list.add(o);
+
+                        //遍历类 字段
+                        for (int l = 0; l < fields.size(); l++) {//遍历字段
+                            Field field = fields.get(l);//类字段
+                            Cell cell = currentRow.getCell(l);//获取一个单元格
+                            Object value = getValue(cell);
+                            BaseUtil.setValue(o, field, value);
+                        }
                     }
                 }
             }
         }
 
 //        inputStream.close();
-        if(outputStream!=null){
+        if (outputStream != null) {
             workbook.write(outputStream);
         }
-        return new AbstractMap.SimpleEntry<>(successFlag,result);
+        return new AbstractMap.SimpleEntry<>(successFlag, result);
     }
 
     /**
@@ -257,7 +257,7 @@ public class BaseUtil {
         }
     }
 
-    public static void setCellValue(Workbook workbook, Sheet sheet,int rowNum,int columnNum,int columnMsg,String value){
+    public static void setCellValue(Workbook workbook, Sheet sheet, int rowNum, int columnNum, int columnMsg, String value) {
         Row row = sheet.getRow(rowNum);
         //原单元格提醒
         Cell rowCell = row.getCell(columnNum);
@@ -271,7 +271,7 @@ public class BaseUtil {
         cellStyle.setBorderTop(BorderStyle.THICK);//设置顶部边框
         cellStyle.setTopBorderColor(IndexedColors.RED.getIndex());//设置顶部边框颜色
         //字体处理类
-        Font font=workbook.createFont();
+        Font font = workbook.createFont();
         font.setColor(Font.COLOR_RED);
         cellStyle.setFont(font);
 
@@ -282,19 +282,19 @@ public class BaseUtil {
         Cell cell = row.createCell(columnMsg);
         CellStyle cellStyle2 = workbook.createCellStyle();
 
-        Font font2=workbook.createFont();
+        Font font2 = workbook.createFont();
         font2.setColor(Font.COLOR_RED);
         font2.setBold(true);
         cellStyle2.setFont(font2);
         cell.setCellStyle(cellStyle2);
-        cell.setCellValue("单元格["+(columnNum+1)+"]异常："+value);
+        cell.setCellValue("单元格[" + (columnNum + 1) + "]异常：" + value);
     }
 
-    public static List<Field>  getFieldAll(Class clazz){
-        List<Field> list =new ArrayList<>();
+    public static List<Field> getFieldAll(Class clazz) {
+        List<Field> list = new ArrayList<>();
         Field[] declaredFields = clazz.getDeclaredFields();
         list.addAll(Arrays.asList(declaredFields));
-        if(clazz.getSuperclass()!=null){
+        if (clazz.getSuperclass() != null) {
             list.addAll(getFieldAll(clazz.getSuperclass()));
         }
         return list;
