@@ -216,7 +216,7 @@ public class BaseUtil {
                         list.add(map);
                         for (int j = 0; j < firstRow.getLastCellNum(); j++) {
                             Cell cell = currentRow.getCell(j);//获取一个单元格
-                            map.put(firstRow.getCell(j).getStringCellValue(), BaseUtil.getValue(cell).toString());
+                            map.put(firstRow.getCell(j).getStringCellValue(), BaseUtil.getValue(cell)==null?"":BaseUtil.getValue(cell).toString());
                         }
 
                     } else {
@@ -248,6 +248,9 @@ public class BaseUtil {
      * @return
      */
     private static Object getValue(Cell cell) {
+        if(cell==null){
+            return null;
+        }
         if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
             return cell.getBooleanCellValue();
         } else if (cell.getCellTypeEnum() == CellType.NUMERIC) {
