@@ -140,7 +140,8 @@ public class BaseUtil {
             result.add(list);
 
 //            Map<Integer, Map.Entry<String, Field>> mapField = new TreeMap<>();//列 字段 类型
-            Map<Integer, Map.Entry<ImportRuleValidDecorator, Field>> mapField = new TreeMap<>();//列 字段 类型
+            Map<Integer, Map.Entry<ImportRuleValidDecorator, Field>> mapField = new LinkedHashMap<>();//列 字段 类型
+            Map<Integer, Map.Entry<ImportRuleValidDecorator, String>> mapFieldMap = new LinkedHashMap<>();//列 字段 类型
 
             //第一行是头 并且 需要 mapping
             if (firstLineHeader && firstLineHeaderToFiled != null && firstLineHeaderToFiled.size() > 0) {
@@ -154,12 +155,17 @@ public class BaseUtil {
                         Cell cell = rowHeader.getCell(k);//获取一个单元格
 //                        Object value = getValue(cell);
                         if (entry.getKey().equals(getValue(cell))) {
-                            for (int l = 0; l < fields.size(); l++) {//遍历字段
-                                Field field = fields.get(l);
-                                if (field.getName().equals(entry.getValue().getKey())) {
-                                    mapField.put(k, new AbstractMap.SimpleEntry<>(entry.getValue().getValue(), field));
-
-                                    break;
+                            if (clazz.getTypeName().equals("java.util.Map")
+                                    || clazz.getTypeName().equals("java.util.LinkedHashMap")
+                                    || clazz.getTypeName().equals("java.util.HashMap")) {
+                                mapFieldMap.put(k, new AbstractMap.SimpleEntry<>(entry.getValue().getValue(), entry.getKey()));
+                            } else {
+                                for (int l = 0; l < fields.size(); l++) {//遍历字段
+                                    Field field = fields.get(l);
+                                    if (field.getName().equals(entry.getValue().getKey())) {
+                                        mapField.put(k, new AbstractMap.SimpleEntry<>(entry.getValue().getValue(), field));
+                                        break;
+                                    }
                                 }
                             }
                         }
@@ -168,26 +174,53 @@ public class BaseUtil {
                 //后续数据
                 int rowNum = sheet.getLastRowNum() + 1;//行数 获取的是最后一行的编号（编号从0开始）。
                 for (int j = 1; j < rowNum; j++) {//遍历行
-                    Object o = clazz.newInstance();
-                    list.add(o);
                     Row row = sheet.getRow(j);//获取一行
-                    for (Map.Entry<Integer, Map.Entry<ImportRuleValidDecorator, Field>> entry : mapField.entrySet()) {
-                        Integer k = entry.getKey();
-                        Cell cell = row.getCell(k);//获取一个单元格
-                        Object value = getValue(cell);
-                        //校验
-                        ImportRuleValidDecorator validateDecorator = entry.getValue().getKey();
-                        Map.Entry<Boolean, String> handlerValid =null;
-                        if(validateDecorator!=null){
-                            handlerValid = validateDecorator.handlerValid(value);
+
+                    if (clazz.getTypeName().equals("java.util.Map")
+                            || clazz.getTypeName().equals("java.util.LinkedHashMap")
+                            || clazz.getTypeName().equals("java.util.HashMap")) {
+                        Map<String, String> map = new HashMap<>();
+                        list.add(map);
+                        for (Map.Entry<Integer, Map.Entry<ImportRuleValidDecorator, String>> entry : mapFieldMap.entrySet()) {
+                            Integer k = entry.getKey();
+                            Cell cell = row.getCell(k);//获取一个单元格
+                            Object value = getValue(cell);
+                            //校验
+                            ImportRuleValidDecorator validateDecorator = entry.getValue().getKey();
+                            Map.Entry<Boolean, String> handlerValid = null;
+                            if (validateDecorator != null) {
+                                handlerValid = validateDecorator.handlerValid(value);
+                            }
+                            if (null != handlerValid && !handlerValid.getKey()) {
+                                successFlag = false;
+                                short lastCellNum = row.getLastCellNum();
+                                setCellValue(workbook, sheet, j, k, lastCellNum, handlerValid.getValue());
+                            } else {
+                                map.put(entry.getValue().getValue(), BaseUtil.getValue(cell) == null ? "" : BaseUtil.getValue(cell).toString());
+
+                            }
                         }
-                        if (null != handlerValid && !handlerValid.getKey()) {
-                            successFlag = false;
-                            short lastCellNum = row.getLastCellNum();
-                            setCellValue(workbook, sheet, j, k, lastCellNum, handlerValid.getValue());
-                        } else {
-                            //反射读取值
-                            BaseUtil.setValue(o, entry.getValue().getValue(), value);
+                    } else {
+                        Object o = clazz.newInstance();
+                        list.add(o);
+                        for (Map.Entry<Integer, Map.Entry<ImportRuleValidDecorator, Field>> entry : mapField.entrySet()) {
+                            Integer k = entry.getKey();
+                            Cell cell = row.getCell(k);//获取一个单元格
+                            Object value = getValue(cell);
+                            //校验
+                            ImportRuleValidDecorator validateDecorator = entry.getValue().getKey();
+                            Map.Entry<Boolean, String> handlerValid = null;
+                            if (validateDecorator != null) {
+                                handlerValid = validateDecorator.handlerValid(value);
+                            }
+                            if (null != handlerValid && !handlerValid.getKey()) {
+                                successFlag = false;
+                                short lastCellNum = row.getLastCellNum();
+                                setCellValue(workbook, sheet, j, k, lastCellNum, handlerValid.getValue());
+                            } else {
+                                //反射读取值
+                                BaseUtil.setValue(o, entry.getValue().getValue(), value);
+                            }
                         }
                     }
 //
@@ -211,12 +244,14 @@ public class BaseUtil {
 
                     Row currentRow = sheet.getRow(rowIndex);//获取当前行
 
-                    if (clazz.getTypeName().equals("java.util.Map")) {
+                    if (clazz.getTypeName().equals("java.util.Map")
+                            || clazz.getTypeName().equals("java.util.LinkedHashMap")
+                            || clazz.getTypeName().equals("java.util.HashMap")) {
                         Map<String, String> map = new HashMap<>();
                         list.add(map);
                         for (int j = 0; j < firstRow.getLastCellNum(); j++) {
                             Cell cell = currentRow.getCell(j);//获取一个单元格
-                            map.put(firstRow.getCell(j).getStringCellValue(), BaseUtil.getValue(cell)==null?"":BaseUtil.getValue(cell).toString());
+                            map.put(firstRow.getCell(j).getStringCellValue(), BaseUtil.getValue(cell) == null ? "" : BaseUtil.getValue(cell).toString());
                         }
 
                     } else {
@@ -248,7 +283,7 @@ public class BaseUtil {
      * @return
      */
     private static Object getValue(Cell cell) {
-        if(cell==null){
+        if (cell == null) {
             return null;
         }
         if (cell.getCellTypeEnum() == CellType.BOOLEAN) {
@@ -261,36 +296,43 @@ public class BaseUtil {
     }
 
     public static void setCellValue(Workbook workbook, Sheet sheet, int rowNum, int columnNum, int columnMsg, String value) {
-        Row row = sheet.getRow(rowNum);
-        //原单元格提醒
-        Cell rowCell = row.getCell(columnNum);
-        CellStyle cellStyle = workbook.createCellStyle();
-        cellStyle.setBorderBottom(BorderStyle.THICK);//设置底部边框
-        cellStyle.setBottomBorderColor(IndexedColors.RED.getIndex());//设置底部边框颜色
-        cellStyle.setBorderLeft(BorderStyle.THICK);//设置左部边框
-        cellStyle.setLeftBorderColor(IndexedColors.RED.getIndex());//设置左部边框颜色
-        cellStyle.setBorderRight(BorderStyle.THICK);//设置右部边框
-        cellStyle.setRightBorderColor(IndexedColors.RED.getIndex());//设置右部边框颜色
-        cellStyle.setBorderTop(BorderStyle.THICK);//设置顶部边框
-        cellStyle.setTopBorderColor(IndexedColors.RED.getIndex());//设置顶部边框颜色
-        //字体处理类
-        Font font = workbook.createFont();
-        font.setColor(Font.COLOR_RED);
-        cellStyle.setFont(font);
+        try {
+            Row row = sheet.getRow(rowNum);
+            //原单元格提醒
+            Cell rowCell = row.getCell(columnNum);
+            CellStyle cellStyle = workbook.createCellStyle();
+            if (cellStyle != null) {
+                cellStyle.setBorderBottom(BorderStyle.THICK);//设置底部边框
+                cellStyle.setBottomBorderColor(IndexedColors.RED.getIndex());//设置底部边框颜色
+                cellStyle.setBorderLeft(BorderStyle.THICK);//设置左部边框
+                cellStyle.setLeftBorderColor(IndexedColors.RED.getIndex());//设置左部边框颜色
+                cellStyle.setBorderRight(BorderStyle.THICK);//设置右部边框
+                cellStyle.setRightBorderColor(IndexedColors.RED.getIndex());//设置右部边框颜色
+                cellStyle.setBorderTop(BorderStyle.THICK);//设置顶部边框
+                cellStyle.setTopBorderColor(IndexedColors.RED.getIndex());//设置顶部边框颜色
+                //字体处理类
+                Font font = workbook.createFont();
+                font.setColor(Font.COLOR_RED);
+                cellStyle.setFont(font);
+            }
 
-        rowCell.setCellStyle(cellStyle);
+            if (rowCell != null)
+                rowCell.setCellStyle(cellStyle);
 
-
-        //消息
-        Cell cell = row.createCell(columnMsg);
-        CellStyle cellStyle2 = workbook.createCellStyle();
-
-        Font font2 = workbook.createFont();
-        font2.setColor(Font.COLOR_RED);
-        font2.setBold(true);
-        cellStyle2.setFont(font2);
-        cell.setCellStyle(cellStyle2);
-        cell.setCellValue("单元格[" + (columnNum + 1) + "]异常：" + value);
+            //消息
+            Cell cell = row.createCell(columnMsg);
+            CellStyle cellStyle2 = workbook.createCellStyle();
+            if (cellStyle2 != null) {
+                Font font2 = workbook.createFont();
+                font2.setColor(Font.COLOR_RED);
+                font2.setBold(true);
+                cellStyle2.setFont(font2);
+                cell.setCellStyle(cellStyle2);
+                cell.setCellValue("单元格[" + (columnNum + 1) + "]异常：" + value);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static List<Field> getFieldAll(Class clazz) {

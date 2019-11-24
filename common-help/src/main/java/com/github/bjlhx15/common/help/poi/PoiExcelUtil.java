@@ -2,10 +2,8 @@ package com.github.bjlhx15.common.help.poi;
 
 import com.github.bjlhx15.common.help.poi.datarule.importexcel.ImportRuleValidDecorator;
 import com.github.bjlhx15.common.help.poi.datarule.exportexcel.StrategyContext;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFDataFormat;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.omg.PortableInterceptor.INACTIVE;
 
@@ -64,9 +62,14 @@ public class PoiExcelUtil {
         boolean flagHeaderCreate = true;
         int rowIndex = 0;
         List<Field> listField = new ArrayList<>();//字段类型
-//        List<Map.Entry<String, Integer>> listMapHeader = new ArrayList<>();//字段类型
-        Map<String, Integer> listMapHeader = new LinkedHashMap<>();//字段类型
+        List<Map.Entry<String, Integer>> listMapHeader = new ArrayList<>();//字段类型
+//        Map<String, Integer> listMapHeader = new LinkedHashMap<>();//字段类型
 //        List<Map.Entry<Field, CellDataType>> listField = new ArrayList<>();//字段类型
+
+        // 设置列宽和设置单元格格式为纯文本
+        DataFormat format = workbook.createDataFormat();
+        CellStyle textStyle = workbook.createCellStyle();
+        textStyle.setDataFormat(format.getFormat("@"));
 
         //列头mapping
         //headerMapping 有值 使用 headerMapping 列头
@@ -119,14 +122,17 @@ public class PoiExcelUtil {
                     } else {
                         // headerMapping  不存在 按照类属性导出
                         rowIndex = 1;
-                        if (data.getClass().getTypeName().equals("java.util.Map")) {
+                        if (data.getClass().getTypeName().equals("java.util.Map")
+                                || data.getClass().getTypeName().equals("java.util.LinkedHashMap")
+                                || data.getClass().getTypeName().equals("java.util.HashMap")
+                                || data.getClass().getTypeName().equals("com.alibaba.fastjson.JSONObject")) {
                             Map<String, String> tmp = (Map) data;
                             int tmpKeyIndex = 0;
                             for (String s : tmp.keySet()) {
                                 Cell cell = rowHeader.createCell(tmpKeyIndex);
                                 cell.setCellValue(s);
+                                listMapHeader.add(new AbstractMap.SimpleEntry<>(s, tmpKeyIndex));
                                 tmpKeyIndex++;
-                                listMapHeader.put(s,tmpKeyIndex);
                             }
                         } else {
                             for (int j = 0; j < fieldList.size(); j++) {
@@ -139,14 +145,30 @@ public class PoiExcelUtil {
                         }
                     }
                 }
+                if (headerMapping != null && headerMapping.size() > 0) {
+                    for (int g = 0, length = headerMapping.size(); g < length; g++) {
+                        //sheet.setColumnWidth(i, 6000);
+                        sheet.setDefaultColumnStyle(i, textStyle);
+                    }
+                }
+                if (listMapHeader != null && listMapHeader.size() > 0) {
+                    for (int g = 0, length = listMapHeader.size(); g < length; g++) {
+                        //sheet.setColumnWidth(i, 6000);
+                        sheet.setDefaultColumnStyle(i, textStyle);
+                    }
+                }
 
                 //行 数据
                 Row row = sheet.createRow(i + rowIndex);
 
-                if (data.getClass().getTypeName().equals("java.util.Map")) {
+                if (data.getClass().getTypeName().equals("java.util.Map")
+                        || data.getClass().getTypeName().equals("java.util.LinkedHashMap")
+                        || data.getClass().getTypeName().equals("java.util.HashMap")
+                        || data.getClass().getTypeName().equals("com.alibaba.fastjson.JSONObject")) {
                     Map<String, String> tmp = (Map) data;
-                    for (Map.Entry<String, String> entry : tmp.entrySet()) {
-                        for (Map.Entry<String, Integer> integerEntry : listMapHeader.entrySet()) {
+                    for (Map.Entry<String, String> entry : tmp.entrySet()) {//数据
+//                        for (Map.Entry<String, Integer> integerEntry : listMapHeader.entrySet()) {//头
+                        for (Map.Entry<String, Integer> integerEntry : listMapHeader) {//头
                             if (entry.getKey().equals(integerEntry.getKey())) {
                                 Cell cell = row.createCell(integerEntry.getValue());
                                 cell.setCellValue(entry.getValue());

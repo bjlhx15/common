@@ -2,24 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<artifactId>common</artifactId>
+		<artifactId>spring-cache</artifactId>
 		<groupId>com.github.bjlhx15</groupId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>spring-cache</artifactId>
-	<packaging>pom</packaging>	
 
-	<modules>
-		<module>spring-cache-redis</module>
-		<module>springboot2-cache-redis-cluster-jedis</module>
-		<module>springboot2-cache-redis-cluster-lettuce</module>
-		<module>springboot2-cache-redis-single</module>
-		<module>springboot2-cache-default</module>
-		<module>springboot2-cache-ehcache2</module>
-		<module>springboot2-cache-ehcache3</module>
-		<module>springboot2-cache-caffeine</module>
-	</modules>
+	<artifactId>springboot2-cache-default</artifactId>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

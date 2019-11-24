@@ -31,7 +31,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.lhx.common</groupId>
+            <groupId>com.github.bjlhx15</groupId>
             <artifactId>mybatis-plugin-ext</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -42,7 +42,7 @@
 ##### 1.2、在generatorConfig.xml中修改
 ```xml
 <!-- 这里的type里写的是你的实现类的类全路径 -->
-<commentGenerator type="com.lhx.common.mybatis.plugin.DBCommentGenerator">
+<commentGenerator type="com.github.bjlhx15.mybaits.plugins.DBCommentGenerator">
     <property name="suppressDate" value="false"/> <!-- 是否去除注释时间戳 false时打开时间标志，true时关闭-->
     <property name="suppressAllComments" value="false"/>   <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
     <property name="javaFileEncoding" value="UTF-8"/>

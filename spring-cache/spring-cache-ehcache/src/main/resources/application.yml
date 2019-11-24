@@ -1,8 +1,0 @@
-server:
-  port: 8081
-# 注意:ehcache3.x配置文件路径必须指定
-# 配置ehcache缓存
-spring:
-  cache:
-    jcache:
-      config: classpath:ehcache3.xml  ###attention，这里是jcache
