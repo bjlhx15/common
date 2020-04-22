@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="https://github.com/bjlhx15/common/blob/master/spring-demo-001-beandefinition/beandefinition-001/src/main/resources/CommonUser"
+            targetNamespace="https://github.com/bjlhx15/common/blob/master/spring-demo-001-beandefinition/beandefinition-001/src/main/resources/CommonUser"
+            elementFormDefault="qualified">
+
+    <xsd:element name="commonuser">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string"/>
+            <xsd:attribute name="userName" type="xsd:string"/>
+            <xsd:attribute name="email" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

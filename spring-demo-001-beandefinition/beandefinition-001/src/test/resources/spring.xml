@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:myTag="https://github.com/bjlhx15/common/blob/master/spring-demo-001-beandefinition/beandefinition-001/src/main/resources/CommonUser"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        https://github.com/bjlhx15/common/blob/master/spring-demo-001-beandefinition/beandefinition-001/src/main/resources/CommonUser
+         https://github.com/bjlhx15/common/blob/master/spring-demo-001-beandefinition/beandefinition-001/src/main/resources/CommonUser.xsd">
+
+    <myTag:commonuser id="user" email="bjlhx15@163.com" userName="lihongxu" />
+
+</beans>
