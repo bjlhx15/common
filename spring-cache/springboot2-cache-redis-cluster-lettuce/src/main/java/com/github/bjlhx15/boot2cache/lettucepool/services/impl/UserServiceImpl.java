@@ -41,4 +41,10 @@ public class UserServiceImpl implements IUserService {
 		return 1;
 	}
 
+	@Override
+	@CacheEvict(value="user", allEntries=true)
+	public int deleteAll(String id) {
+		return 1;
+	}
+
 }

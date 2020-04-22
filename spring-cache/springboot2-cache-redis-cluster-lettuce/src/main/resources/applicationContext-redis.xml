@@ -14,8 +14,16 @@
 
     <!--redis-->
     <bean id="redisClusterConfiguration" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
-        <constructor-arg name="clusterNodes"
-                         value="192.168.199.220:7000,192.168.199.220:7001,192.168.199.220:7002,192.168.199.220:7003,192.168.199.220:7004,192.168.199.220:7005"/>
+        <constructor-arg>
+            <list>
+                <value>10.13.144.49:7000</value>
+                <value>10.13.144.49:7001</value>
+                <value>10.13.144.49:7002</value>
+                <value>10.13.144.49:7003</value>
+                <value>10.13.144.49:7004</value>
+                <value>10.13.144.49:7005</value>
+            </list>
+        </constructor-arg>
     </bean>
     <bean id="connectionFactory" class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory">
         <constructor-arg name="clusterConfiguration" ref="redisClusterConfiguration"/>

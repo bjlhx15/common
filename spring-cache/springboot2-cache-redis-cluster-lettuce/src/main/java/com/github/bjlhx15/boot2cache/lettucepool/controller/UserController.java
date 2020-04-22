@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +17,8 @@ public class UserController {
 
     @GetMapping("/user")
     @ResponseBody
-    public User queryUser() {
-        return this.iUserService.queryUser("1");
+    public User queryUser(String id) {
+        return this.iUserService.queryUser(id);
     }
 
     @GetMapping("/user/u")
@@ -34,17 +35,10 @@ public class UserController {
         return "ok";
     }
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;//操作key-value都是字符串
-
-    @Autowired
-    private RedisTemplate redisTemplate;//操作key-value都是对象
-
-    @GetMapping("/test")
+    @GetMapping("/user/d/all")
     @ResponseBody
-    public String test() {
-        stringRedisTemplate.opsForValue().set("a","sss");
-        String a = stringRedisTemplate.opsForValue().get("a");
-        return a;
+    public String deleteAll() {
+        this.iUserService.deleteAll("1");
+        return "ok";
     }
 }

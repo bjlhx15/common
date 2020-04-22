@@ -9,4 +9,6 @@ public interface IUserService {
 	User updateUser(String id);
 
 	int deleteUser(String id);
+
+	int deleteAll(String id);
 }
