@@ -1,0 +1,487 @@
+[2021-01-08 22:18:46:048-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting DemoApplication on JRMVQ29VHTD5 with PID 92580 (/Users/lihongxu6/IdeaProjects/common/spring-demo-000-other/eg-003-verificationcode/target/classes started by lihongxu6 in /Users/lihongxu6/IdeaProjects/common)
+[2021-01-08 22:18:46:066-main] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:662) - No active profile set, falling back to default profiles: default
+[2021-01-08 22:18:46:126-main] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@77258e59: startup date [Fri Jan 08 22:18:46 CST 2021]; root of context hierarchy
+[2021-01-08 22:18:46:497-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config.xml]
+[2021-01-08 22:18:46:597-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config-kaptcha.xml]
+[2021-01-08 22:18:47:353-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 8080 (http)
+[2021-01-08 22:18:47:381-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:18:47:393-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2021-01-08 22:18:47:393-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.32
+[2021-01-08 22:18:47:398-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/lihongxu6/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+[2021-01-08 22:18:47:507-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2021-01-08 22:18:47:507-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 1381 ms
+[2021-01-08 22:18:47:570-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2021-01-08 22:18:47:576-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2021-01-08 22:18:47:577-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2021-01-08 22:18:47:577-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2021-01-08 22:18:47:577-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2021-01-08 22:18:47:707-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:18:47:877-main] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:574) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@77258e59: startup date [Fri Jan 08 22:18:46 CST 2021]; root of context hierarchy
+[2021-01-08 22:18:47:997-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index()
+[2021-01-08 22:18:48:000-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/get]}" onto public void com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.defaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[2021-01-08 22:18:48:000-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:18:48:004-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[2021-01-08 22:18:48:004-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:18:48:026-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:18:48:026-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:18:48:226-main] [INFO] - org.springframework.jmx.export.MBeanExporter.afterSingletonsInstantiated(MBeanExporter.java:433) - Registering beans for JMX exposure on startup
+[2021-01-08 22:18:48:253-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:18:48:295-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Using a shared selector for servlet write/read
+[2021-01-08 22:18:48:325-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:206) - Tomcat started on port(s): 8080 (http) with context path ''
+[2021-01-08 22:18:48:333-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) - Started DemoApplication in 2.996 seconds (JVM running for 4.747)
+[2021-01-08 22:18:57:850-http-nio-8080-exec-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2021-01-08 22:18:57:850-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494) - FrameworkServlet 'dispatcherServlet': initialization started
+[2021-01-08 22:18:57:870-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:509) - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+[2021-01-08 22:19:50:054-http-nio-8080-exec-8] [ERROR] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:182) - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
+javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
+	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_172]
+[2021-01-08 22:20:04:395-http-nio-8080-exec-9] [ERROR] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:182) - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
+javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
+	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_172]
+[2021-01-08 22:20:06:661-http-nio-8080-exec-10] [ERROR] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:182) - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)] with root cause
+javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
+	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:209) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:147) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:314) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1325) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1069) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1008) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_172]
+[2021-01-08 22:20:26:900-Thread-10] [INFO] - org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:993) - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@77258e59: startup date [Fri Jan 08 22:18:46 CST 2021]; root of context hierarchy
+[2021-01-08 22:20:26:902-Thread-10] [INFO] - org.springframework.jmx.export.MBeanExporter.destroy(MBeanExporter.java:451) - Unregistering JMX-exposed beans on shutdown
+[2021-01-08 22:20:32:186-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting DemoApplication on JRMVQ29VHTD5 with PID 92722 (/Users/lihongxu6/IdeaProjects/common/spring-demo-000-other/eg-003-verificationcode/target/classes started by lihongxu6 in /Users/lihongxu6/IdeaProjects/common)
+[2021-01-08 22:20:32:196-main] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:662) - No active profile set, falling back to default profiles: default
+[2021-01-08 22:20:32:315-main] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4dd02341: startup date [Fri Jan 08 22:20:32 CST 2021]; root of context hierarchy
+[2021-01-08 22:20:32:730-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config.xml]
+[2021-01-08 22:20:32:812-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config-kaptcha.xml]
+[2021-01-08 22:20:33:616-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 8080 (http)
+[2021-01-08 22:20:33:634-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:20:33:642-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2021-01-08 22:20:33:642-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.32
+[2021-01-08 22:20:33:646-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/lihongxu6/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+[2021-01-08 22:20:33:709-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2021-01-08 22:20:33:709-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 1394 ms
+[2021-01-08 22:20:33:760-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2021-01-08 22:20:33:764-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2021-01-08 22:20:33:765-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2021-01-08 22:20:33:765-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2021-01-08 22:20:33:765-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2021-01-08 22:20:33:894-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:20:34:065-main] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:574) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4dd02341: startup date [Fri Jan 08 22:20:32 CST 2021]; root of context hierarchy
+[2021-01-08 22:20:34:110-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index()
+[2021-01-08 22:20:34:113-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/get]}" onto public void com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.defaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[2021-01-08 22:20:34:114-main] [WARN] - org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:558) - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'kaptchaController' method 
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/login],methods=[GET]}: There is already 'kaptchaController' bean method
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index() mapped.
+[2021-01-08 22:20:34:117-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Stopping service [Tomcat]
+[2021-01-08 22:20:34:128-main] [INFO] - org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logAutoConfigurationReport(ConditionEvaluationReportLoggingListener.java:101) - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2021-01-08 22:20:34:237-main] [ERROR] - org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:845) - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'kaptchaController' method 
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/login],methods=[GET]}: There is already 'kaptchaController' bean method
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1699) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at com.github.bjlhx15.common.springdemo.springbootjunit.DemoApplication.main(DemoApplication.java:27) [classes/:?]
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'kaptchaController' method 
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/login],methods=[GET]}: There is already 'kaptchaController' bean method
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:580) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:544) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:265) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:250) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[?:1.8.0_172]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:248) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:218) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:188) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:136) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1758) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1695) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 16 more
+[2021-01-08 22:20:49:763-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting DemoApplication on JRMVQ29VHTD5 with PID 92737 (/Users/lihongxu6/IdeaProjects/common/spring-demo-000-other/eg-003-verificationcode/target/classes started by lihongxu6 in /Users/lihongxu6/IdeaProjects/common)
+[2021-01-08 22:20:49:771-main] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:662) - No active profile set, falling back to default profiles: default
+[2021-01-08 22:20:49:823-main] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@aeab9a1: startup date [Fri Jan 08 22:20:49 CST 2021]; root of context hierarchy
+[2021-01-08 22:20:50:180-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config.xml]
+[2021-01-08 22:20:50:261-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config-kaptcha.xml]
+[2021-01-08 22:20:51:016-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 8080 (http)
+[2021-01-08 22:20:51:036-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:20:51:044-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2021-01-08 22:20:51:045-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.32
+[2021-01-08 22:20:51:065-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/lihongxu6/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+[2021-01-08 22:20:51:138-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2021-01-08 22:20:51:139-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 1316 ms
+[2021-01-08 22:20:51:191-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2021-01-08 22:20:51:194-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2021-01-08 22:20:51:195-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2021-01-08 22:20:51:195-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2021-01-08 22:20:51:195-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2021-01-08 22:20:51:309-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:20:51:465-main] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:574) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@aeab9a1: startup date [Fri Jan 08 22:20:49 CST 2021]; root of context hierarchy
+[2021-01-08 22:20:51:509-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index()
+[2021-01-08 22:20:51:512-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/get]}" onto public void com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.defaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[2021-01-08 22:20:51:513-main] [WARN] - org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:558) - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'kaptchaController' method 
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/login],methods=[GET]}: There is already 'kaptchaController' bean method
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index() mapped.
+[2021-01-08 22:20:51:516-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Stopping service [Tomcat]
+[2021-01-08 22:20:51:597-main] [INFO] - org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logAutoConfigurationReport(ConditionEvaluationReportLoggingListener.java:101) - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2021-01-08 22:20:51:604-main] [ERROR] - org.springframework.boot.SpringApplication.reportFailure(SpringApplication.java:845) - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'kaptchaController' method 
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/login],methods=[GET]}: There is already 'kaptchaController' bean method
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1699) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:573) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:495) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:759) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at com.github.bjlhx15.common.springdemo.springbootjunit.DemoApplication.main(DemoApplication.java:27) [classes/:?]
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'kaptchaController' method 
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/login],methods=[GET]}: There is already 'kaptchaController' bean method
+public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:580) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:544) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:265) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:250) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684) ~[?:1.8.0_172]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:248) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:218) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:188) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:136) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1758) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1695) ~[spring-beans-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	... 16 more
+[2021-01-08 22:21:11:365-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting DemoApplication on JRMVQ29VHTD5 with PID 92746 (/Users/lihongxu6/IdeaProjects/common/spring-demo-000-other/eg-003-verificationcode/target/classes started by lihongxu6 in /Users/lihongxu6/IdeaProjects/common)
+[2021-01-08 22:21:11:374-main] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:662) - No active profile set, falling back to default profiles: default
+[2021-01-08 22:21:11:479-main] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5629510: startup date [Fri Jan 08 22:21:11 CST 2021]; root of context hierarchy
+[2021-01-08 22:21:11:975-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config.xml]
+[2021-01-08 22:21:12:046-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config-kaptcha.xml]
+[2021-01-08 22:21:12:812-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 8080 (http)
+[2021-01-08 22:21:12:831-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:21:12:841-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2021-01-08 22:21:12:841-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.32
+[2021-01-08 22:21:12:846-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/lihongxu6/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+[2021-01-08 22:21:12:909-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2021-01-08 22:21:12:909-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 1431 ms
+[2021-01-08 22:21:12:959-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2021-01-08 22:21:12:963-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2021-01-08 22:21:12:964-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2021-01-08 22:21:12:964-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2021-01-08 22:21:12:964-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2021-01-08 22:21:13:075-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:21:13:234-main] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:574) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5629510: startup date [Fri Jan 08 22:21:11 CST 2021]; root of context hierarchy
+[2021-01-08 22:21:13:278-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login2],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index()
+[2021-01-08 22:21:13:281-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/get]}" onto public void com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.defaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[2021-01-08 22:21:13:281-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:21:13:285-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[2021-01-08 22:21:13:286-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:21:13:309-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:21:13:309-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:21:13:545-main] [INFO] - org.springframework.jmx.export.MBeanExporter.afterSingletonsInstantiated(MBeanExporter.java:433) - Registering beans for JMX exposure on startup
+[2021-01-08 22:21:13:560-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:21:13:588-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Using a shared selector for servlet write/read
+[2021-01-08 22:21:13:603-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:206) - Tomcat started on port(s): 8080 (http) with context path ''
+[2021-01-08 22:21:13:609-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) - Started DemoApplication in 3.04 seconds (JVM running for 3.909)
+[2021-01-08 22:21:17:715-http-nio-8080-exec-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2021-01-08 22:21:17:715-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494) - FrameworkServlet 'dispatcherServlet': initialization started
+[2021-01-08 22:21:17:734-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:509) - FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+[2021-01-08 22:21:26:933-http-nio-8080-exec-1] [ERROR] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:182) - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(KaptchaController.java:72) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_172]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_172]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_172]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_172]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:209) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:136) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:877) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:783) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:991) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851) ~[spring-webmvc-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52) ~[tomcat-embed-websocket-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:493) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:800) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1471) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_172]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_172]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.32.jar:8.5.32]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_172]
+[2021-01-08 22:26:02:636-Thread-8] [INFO] - org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:993) - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5629510: startup date [Fri Jan 08 22:21:11 CST 2021]; root of context hierarchy
+[2021-01-08 22:26:02:640-Thread-8] [INFO] - org.springframework.jmx.export.MBeanExporter.destroy(MBeanExporter.java:451) - Unregistering JMX-exposed beans on shutdown
+[2021-01-08 22:26:07:660-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting DemoApplication on JRMVQ29VHTD5 with PID 93258 (/Users/lihongxu6/IdeaProjects/common/spring-demo-000-other/eg-003-verificationcode/target/classes started by lihongxu6 in /Users/lihongxu6/IdeaProjects/common)
+[2021-01-08 22:26:07:668-main] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:662) - No active profile set, falling back to default profiles: default
+[2021-01-08 22:26:07:724-main] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@758705fa: startup date [Fri Jan 08 22:26:07 CST 2021]; root of context hierarchy
+[2021-01-08 22:26:08:060-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config.xml]
+[2021-01-08 22:26:08:138-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config-kaptcha.xml]
+[2021-01-08 22:26:08:816-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 8080 (http)
+[2021-01-08 22:26:08:838-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:26:08:846-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2021-01-08 22:26:08:847-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.32
+[2021-01-08 22:26:08:862-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/lihongxu6/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+[2021-01-08 22:26:08:939-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2021-01-08 22:26:08:939-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 1215 ms
+[2021-01-08 22:26:08:990-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2021-01-08 22:26:08:994-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2021-01-08 22:26:08:994-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2021-01-08 22:26:08:994-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2021-01-08 22:26:08:995-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2021-01-08 22:26:09:109-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:26:09:257-main] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:574) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@758705fa: startup date [Fri Jan 08 22:26:07 CST 2021]; root of context hierarchy
+[2021-01-08 22:26:09:299-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login2],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.index()
+[2021-01-08 22:26:09:301-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/get]}" onto public void com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.defaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[2021-01-08 22:26:09:302-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.imgvrifyControllerDefaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:26:09:305-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[2021-01-08 22:26:09:306-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:26:09:411-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:26:09:412-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:26:09:545-main] [INFO] - org.springframework.jmx.export.MBeanExporter.afterSingletonsInstantiated(MBeanExporter.java:433) - Registering beans for JMX exposure on startup
+[2021-01-08 22:26:09:557-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:26:09:582-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Using a shared selector for servlet write/read
+[2021-01-08 22:26:09:595-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:206) - Tomcat started on port(s): 8080 (http) with context path ''
+[2021-01-08 22:26:09:600-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) - Started DemoApplication in 2.541 seconds (JVM running for 3.389)
+[2021-01-08 22:26:23:109-http-nio-8080-exec-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2021-01-08 22:26:23:110-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494) - FrameworkServlet 'dispatcherServlet': initialization started
+[2021-01-08 22:26:23:133-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:509) - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+[2021-01-08 22:32:01:361-Thread-7] [INFO] - org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:993) - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@758705fa: startup date [Fri Jan 08 22:26:07 CST 2021]; root of context hierarchy
+[2021-01-08 22:32:01:365-Thread-7] [INFO] - org.springframework.jmx.export.MBeanExporter.destroy(MBeanExporter.java:451) - Unregistering JMX-exposed beans on shutdown
+[2021-01-08 22:32:06:945-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarting(StartupInfoLogger.java:50) - Starting DemoApplication on JRMVQ29VHTD5 with PID 93876 (/Users/lihongxu6/IdeaProjects/common/spring-demo-000-other/eg-003-verificationcode/target/classes started by lihongxu6 in /Users/lihongxu6/IdeaProjects/common)
+[2021-01-08 22:32:06:952-main] [INFO] - org.springframework.boot.SpringApplication.logStartupProfileInfo(SpringApplication.java:662) - No active profile set, falling back to default profiles: default
+[2021-01-08 22:32:07:001-main] [INFO] - org.springframework.context.support.AbstractApplicationContext.prepareRefresh(AbstractApplicationContext.java:590) - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@130dca52: startup date [Fri Jan 08 22:32:07 CST 2021]; root of context hierarchy
+[2021-01-08 22:32:07:366-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config.xml]
+[2021-01-08 22:32:07:472-main] [INFO] - org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:316) - Loading XML bean definitions from class path resource [spring-config-kaptcha.xml]
+[2021-01-08 22:32:08:326-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:91) - Tomcat initialized with port(s): 8080 (http)
+[2021-01-08 22:32:08:347-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:32:08:356-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting service [Tomcat]
+[2021-01-08 22:32:08:357-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting Servlet Engine: Apache Tomcat/8.5.32
+[2021-01-08 22:32:08:362-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/lihongxu6/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+[2021-01-08 22:32:08:431-localhost-startStop-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring embedded WebApplicationContext
+[2021-01-08 22:32:08:432-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.prepareWebApplicationContext(ServletWebServerApplicationContext.java:285) - Root WebApplicationContext: initialization completed in 1430 ms
+[2021-01-08 22:32:08:486-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.ServletRegistrationBean.addRegistration(ServletRegistrationBean.java:187) - Servlet dispatcherServlet mapped to [/]
+[2021-01-08 22:32:08:490-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'characterEncodingFilter' to: [/*]
+[2021-01-08 22:32:08:490-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+[2021-01-08 22:32:08:490-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+[2021-01-08 22:32:08:490-localhost-startStop-1] [INFO] - org.springframework.boot.web.servlet.AbstractFilterRegistrationBean.configure(AbstractFilterRegistrationBean.java:245) - Mapping filter: 'requestContextFilter' to: [/*]
+[2021-01-08 22:32:08:599-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:32:08:745-main] [INFO] - org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.initControllerAdviceCache(RequestMappingHandlerAdapter.java:574) - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@130dca52: startup date [Fri Jan 08 22:32:07 CST 2021]; root of context hierarchy
+[2021-01-08 22:32:08:791-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/check],methods=[GET]}" onto public org.springframework.http.ResponseEntity com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.check(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:32:08:792-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/get]}" onto public void com.github.bjlhx15.common.springdemo.springbootjunit.controller.KaptchaController.defaultKaptcha(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[2021-01-08 22:32:08:795-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[2021-01-08 22:32:08:796-main] [INFO] - org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:547) - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[2021-01-08 22:32:08:819-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:32:08:819-main] [INFO] - org.springframework.web.servlet.handler.AbstractUrlHandlerMapping.registerHandler(AbstractUrlHandlerMapping.java:373) - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[2021-01-08 22:32:08:964-main] [INFO] - org.springframework.jmx.export.MBeanExporter.afterSingletonsInstantiated(MBeanExporter.java:433) - Registering beans for JMX exposure on startup
+[2021-01-08 22:32:08:977-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Starting ProtocolHandler ["http-nio-8080"]
+[2021-01-08 22:32:09:062-main] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Using a shared selector for servlet write/read
+[2021-01-08 22:32:09:079-main] [INFO] - org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:206) - Tomcat started on port(s): 8080 (http) with context path ''
+[2021-01-08 22:32:09:084-main] [INFO] - org.springframework.boot.StartupInfoLogger.logStarted(StartupInfoLogger.java:59) - Started DemoApplication in 2.796 seconds (JVM running for 3.945)
+[2021-01-08 22:33:23:568-http-nio-8080-exec-1] [INFO] - org.apache.juli.logging.DirectJDKLog.log(DirectJDKLog.java:180) - Initializing Spring FrameworkServlet 'dispatcherServlet'
+[2021-01-08 22:33:23:569-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:494) - FrameworkServlet 'dispatcherServlet': initialization started
+[2021-01-08 22:33:23:588-http-nio-8080-exec-1] [INFO] - org.springframework.web.servlet.FrameworkServlet.initServletBean(FrameworkServlet.java:509) - FrameworkServlet 'dispatcherServlet': initialization completed in 19 ms
+[2021-01-08 22:34:56:320-Thread-8] [INFO] - org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:993) - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@130dca52: startup date [Fri Jan 08 22:32:07 CST 2021]; root of context hierarchy
+[2021-01-08 22:34:56:325-Thread-8] [INFO] - org.springframework.jmx.export.MBeanExporter.destroy(MBeanExporter.java:451) - Unregistering JMX-exposed beans on shutdown

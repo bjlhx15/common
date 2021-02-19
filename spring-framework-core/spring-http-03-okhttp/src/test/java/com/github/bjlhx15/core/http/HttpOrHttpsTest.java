@@ -73,4 +73,10 @@ public class HttpOrHttpsTest {
             log.error("----error----",postForEntity);
         }
     }
+    @Test
+    public void testHttpAsync() {
+        JSONObject forObject = restTemplate.get.getForObject("http://yuncha.jdcloud.com/auth/user/header", JSONObject.class);
+        log.info(forObject.toJSONString());
+    }
+
 }

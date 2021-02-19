@@ -8,6 +8,6 @@ public class CommonUserNamespaceHandler extends NamespaceHandlerSupport {
     @Override
     public void init() {
         //将组件注册到 Spring 容器中。
-        registerBeanDefinitionParser("user", new CommonUserDefinitionParser());
+        registerBeanDefinitionParser("commonuser", new CommonUserDefinitionParser());
     }
 }

@@ -9,6 +9,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<modules>
 		<module>common-help</module>
+		<module>common-other</module>
 		<module>spring-framework-core</module>
 		<module>spring-cache</module>
         <module>spring-mybatis</module>
@@ -18,7 +19,10 @@
 		<module>common-bigfileupload-spring</module>
 		<module>common-pdf</module>
 		<module>common-iostream</module>
+		<module>spring-demo-000-other</module>
 		<module>spring-demo-001-beandefinition</module>
+		<module>example-001-disruptor</module>
+		<module>example-002-netty</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
