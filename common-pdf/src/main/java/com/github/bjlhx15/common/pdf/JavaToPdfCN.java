@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class JavaToPdfCN {
-    private static final String DEST = "/Users/lihongxu6/IdeaProjects/common/common-pdf/target/HelloWorldCN.pdf";
+    private static final String DEST = "HelloWorldCN.pdf";
 
     private static final String FONT = "simhei.ttf";
 

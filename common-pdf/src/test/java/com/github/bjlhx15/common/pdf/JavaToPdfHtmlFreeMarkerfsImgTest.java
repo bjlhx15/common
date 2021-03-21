@@ -40,7 +40,7 @@ public class JavaToPdfHtmlFreeMarkerfsImgTest {
 
         List<ByteArrayOutputStream> imgs = JavaToPdfHtmlFreeMarkerfsImg.pdfToImg(pdfStream.toByteArray(), 2, "png");
 
-        String DEST = "/Users/lihongxu6/IdeaProjects/common/common-pdf/target/HelloWorld_CN_HTML_freemarker_fs_img2_";
+        String DEST = "common/common-pdf/file/HelloWorld_CN_HTML_freemarker_fs_img2_";
         for (int i = 0; i < imgs.size(); i++) {
             FileOutputStream fileStream = new FileOutputStream(new File(DEST + i + ".png"));
             fileStream.write(imgs.get(i).toByteArray());
