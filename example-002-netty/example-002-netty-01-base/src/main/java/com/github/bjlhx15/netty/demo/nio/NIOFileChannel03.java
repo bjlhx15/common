@@ -27,13 +27,14 @@ public class NIOFileChannel03 {
              *         limit = capacity;
              *         mark = -1;
              */
-            byteBuffer.clear();
+            byteBuffer.clear(); //复位
             //将fileChannel数据读取到byteBuffer中
             int read = channelIn.read(byteBuffer);
             System.out.println("read=" + read);
             if (read == -1) {
                 break;
             }
+//            将buffer中的数据写入
             byteBuffer.flip();
             channelOut.write(byteBuffer);
         }

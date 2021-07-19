@@ -24,6 +24,7 @@
         <module>eg-005-springevent</module>
         <module>eg-006-regex</module>
         <module>eg-007-thread</module>
+        <module>eg-008-springfile</module>
     </modules>
 
 
