@@ -1,12 +1,10 @@
-package com.github.bjlhx15.netty.demo.groupchat;
+package com.github.bjlhx15.netty.demo.nio.groupchat;
 
-import javax.jws.soap.SOAPBinding;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
-import java.util.Set;
 
 public class GroupChatServer {
     private Selector selector;

@@ -1,0 +1,8 @@
+syntax = "proto3";
+option java_outer_classname = "StudentPOJO";
+option java_package = "com.github.bjlhx15.netty.demo.netty.codec";
+
+message Student{//会在StudentPOJO外部类生成一个内部类，是真实发送的数据
+  int32 id = 1 ;//1 属性序号
+  string name = 2;
+}
