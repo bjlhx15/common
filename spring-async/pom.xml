@@ -7,19 +7,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-cache</artifactId>
+    <artifactId>spring-async</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-cache-redis</module>
-        <module>springboot2-cache-redis-cluster-jedis</module>
-        <module>springboot2-cache-redis-cluster-lettuce</module>
-        <module>springboot2-cache-redis-single</module>
-        <module>springboot2-cache-default</module>
-        <module>springboot2-cache-ehcache2</module>
-        <module>springboot2-cache-ehcache3</module>
-        <module>springboot2-cache-caffeine</module>
-        <module>springboot3-cache-redis-session</module>
+        <module>eg01-servlet</module>
     </modules>
     <build>
         <plugins>

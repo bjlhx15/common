@@ -1,0 +1,2 @@
+[2021-11-08 16:53:22:037-Thread-7] [INFO] - org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:993) - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6475472c: startup date [Tue Nov 02 20:11:30 CST 2021]; root of context hierarchy
+[2021-11-08 16:53:22:044-Thread-7] [INFO] - org.springframework.jmx.export.MBeanExporter.destroy(MBeanExporter.java:451) - Unregistering JMX-exposed beans on shutdown

@@ -23,6 +23,7 @@
 		<module>spring-demo-001-beandefinition</module>
 		<module>example-001-disruptor</module>
 		<module>example-002-netty</module>
+		<module>spring-async</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
