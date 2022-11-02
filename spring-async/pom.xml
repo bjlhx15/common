@@ -12,6 +12,8 @@
 
     <modules>
         <module>eg01-servlet</module>
+        <module>eg02-async</module>
+        <module>eg03-async-webserver</module>
     </modules>
     <build>
         <plugins>

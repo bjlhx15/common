@@ -12,5 +12,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>common-other-001-xml-xtream</module>
+        <module>common-other-002-fullgc</module>
     </modules>
 </project>

@@ -1,0 +1,20 @@
+
+### case 1.1、同步：下游3s 转发4s，成功
+GET http://localhost:8080/gw/sync?timeout=3000&httptimeout=4000
+
+### case 1.2、同步：下游3s 转发2s，SocketTimeoutException
+GET http://localhost:8080/gw/sync?timeout=3000&httptimeout=2000
+
+
+### case 2.1、异步：下游3s 转发2s，主线程立即结束，异步无反应
+GET http://localhost:8080/gw/callable?timeout=3000&httptimeout=2000
+
+### case 2.2、异步：下游3s 转发4s，主线程立即结束，异步无反应
+GET http://localhost:8080/gw/callable?timeout=3000&httptimeout=4000
+
+
+### case 2.3、异步：下游3s 转发2s，主线程立即结束，SocketTimeoutException
+GET http://localhost:8080/gw/defer?timeout=3000&httptimeout=2000
+
+### case 2.4、异步：下游3s 转发4s，主线程立即结束，主线程提前释放，异步线程后续自己释放
+GET http://localhost:8080/gw/defer?timeout=3000&httptimeout=4000

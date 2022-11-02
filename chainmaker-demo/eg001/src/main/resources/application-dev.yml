@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+sdk-config:
+  config-path: classpath:sdk_config.yml  #区块链集群的配置文件
+
+
+key_prefix: /home/admin/conf/

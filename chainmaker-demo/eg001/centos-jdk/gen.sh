@@ -1,0 +1,1 @@
+docker build -t centos7-jdk18321:1.0 .
