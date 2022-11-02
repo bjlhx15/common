@@ -26,3 +26,5 @@ target/
 /nbdist/
 /.nb-gradle/
 jdk-8u321-linux-x64.tar.gz
+chainmaker-demo/eg001/centos-jdk/jdk-8u321-linux-x64.tar.gz
+/chainmaker-demo/eg001/centos-jdk/jdk-8u321-linux-x64.tar.gz
