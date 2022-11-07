@@ -1,17 +1,13 @@
 package com.github.bjlhx15.common.loadbalance;
 
 import com.alibaba.fastjson.JSONObject;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.mockito.Mockito.*;
 
 public class LoadBalance003RandomWeightTest {
     @Mock
@@ -21,11 +17,11 @@ public class LoadBalance003RandomWeightTest {
 
     @Before
     public void setUp() {
-        servers = Arrays.asList(new Server("111", "11111", 1),
-                new Server("222", "22222", 2),
-                new Server("333", "33333", 7)
+        List<Server> servers = Arrays.<Server>
+                asList(new Server("111", 1, 1)
+                , new Server("222", 2, 2)
+                , new Server("333", 3, 3)
         );
-
         loadBalance = new LoadBalance003RandomWeight(servers);
     }
 
@@ -33,8 +29,8 @@ public class LoadBalance003RandomWeightTest {
     @Test
     public void testSelect() throws Exception {
 
-        for (int i = 0; i < 10; i++) {
-            Server result = loadBalance.select(new ILoadBalanceContext());
+        for (int i = 0; i < 18; i++) {
+            Server result = loadBalance.select();
             System.out.println(JSONObject.toJSONString(result));
         }
     }

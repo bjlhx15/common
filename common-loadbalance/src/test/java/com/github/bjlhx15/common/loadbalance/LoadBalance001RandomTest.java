@@ -4,30 +4,39 @@ import com.alibaba.fastjson.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
-public class LoadBalanceRoundRobbinTest {
-    @Mock
-    AtomicLong indexHolder;
+/**
+ * @author lihongxu
+ * @version 1.0
+ * @className LoadBalance001RandomTest
+ * @description TODO
+ * @since 2022/11/7 10:03 下午
+ */
+public class LoadBalance001RandomTest {
     @Mock
     List<Server> servers;
-    LoadBalance002RoundRobbin loadBalance;
+    ILoadBalance loadBalanceRandom;
 
     @Before
     public void setUp() {
-        servers = Arrays.asList(new Server("111", "11111"), new Server("222", "22222"));
-
-        loadBalance = new LoadBalance002RoundRobbin(servers);
+        MockitoAnnotations.initMocks(this);
+        servers = Arrays.<Server>
+                asList(new Server("111", 1, 1)
+                , new Server("222", 2, 2)
+                , new Server("333", 3, 3)
+        );
+        loadBalanceRandom = new LoadBalance001Random(servers);
     }
 
 
     @Test
     public void testSelect() throws Exception {
         for (int i = 0; i < 10; i++) {
-            Server result = loadBalance.select(new ILoadBalanceContext());
+            Server result = loadBalanceRandom.select();
             System.out.println(JSONObject.toJSONString(result));
         }
     }
